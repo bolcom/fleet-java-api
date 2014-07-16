@@ -1,0 +1,74 @@
+import static org.gradle.api.JavaVersion.VERSION_1_8
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+sourceCompatibility = VERSION_1_8
+targetCompatibility = VERSION_1_8
+
+group = 'com.bol.continuousdelivery'
+
+ext {
+    libraries = [:]
+    versions = [:]
+}
+
+versions += [
+        feign          : '6.1.1',
+        slf4j          : '1.7.6',
+]
+
+libraries += [
+        jmockit: 'com.googlecode.jmockit:jmockit:1.6', //Not using 1.7, https://code.google.com/p/jmockit/issues/detail?id=343
+        junit  : 'junit:junit:4.11',
+]
+
+libraries.feign = [
+        "com.netflix.feign:feign-core:${versions.feign}",
+        "com.netflix.feign:feign-jackson:${versions.feign}",
+        "com.netflix.feign:feign-jaxrs:${versions.feign}",
+]
+
+libraries.logging = [
+        "org.slf4j:log4j-over-slf4j:$versions.slf4j", "org.slf4j:jcl-over-slf4j:$versions.slf4j",
+        "ch.qos.logback:logback-core:1.1.2", "ch.qos.logback:logback-classic:1.1.2"
+]
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Fleet Java Client Continuous Delivery', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile libraries.feign
+    compile libraries.logging
+
+    testCompile 'commons-io:commons-io:2.4'
+    testCompile libraries.junit
+    testCompile libraries.jmockit
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+File script(String name) {
+    project.file("gradle/${name}.gradle")
+}

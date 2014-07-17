@@ -4,23 +4,13 @@ public class Unit {
 
     private String name;
     private String fileHash;
-    private byte[] fileContent;
+    private String fileContents;
     private State desiredState;
     private State currentState;
     private String targetMachineID;
     private SystemdState systemd;
 
     public Unit() {
-    }
-
-    public Unit(String name, String fileHash, byte[] fileContent, State desiredState, State currentState, String targetMachineID, SystemdState systemd) {
-        this.name = name;
-        this.fileHash = fileHash;
-        this.fileContent = fileContent;
-        this.desiredState = desiredState;
-        this.currentState = currentState;
-        this.targetMachineID = targetMachineID;
-        this.systemd = systemd;
     }
 
     public String getName() {
@@ -39,12 +29,12 @@ public class Unit {
         this.fileHash = fileHash;
     }
 
-    public byte[] getFileContent() {
-        return fileContent;
+    public String getFileContents() {
+        return fileContents;
     }
 
-    public void setFileContent(byte[] fileContent) {
-        this.fileContent = fileContent;
+    public void setFileContents(String fileContents) {
+        this.fileContents = fileContents;
     }
 
     public State getDesiredState() {

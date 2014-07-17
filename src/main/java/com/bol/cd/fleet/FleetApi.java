@@ -4,7 +4,7 @@ import com.bol.cd.fleet.model.*;
 
 import javax.ws.rs.*;
 
-@Path("/v1-alpha/")
+@Path("/v1-alpha")
 public interface FleetApi {
 
     @GET
@@ -27,13 +27,13 @@ public interface FleetApi {
 
     @DELETE
     @Path("/units/{name}")
-    public void getUnits(
+    public void deleteUnit(
             @PathParam("name") String name,
             DeletableUnit unit
     );
 
     @PUT
-    @Path("units/{name}")
+    @Path("/units/{name}")
     public void putUnit(
             @PathParam("name") String name,
             DesiredUnitState unit

@@ -64,6 +64,7 @@ public class FleetClient {
         builder.contract(new JAXRSModule.JAXRSContract())
                 .decoder(new JacksonDecoder())
                 .encoder(new JacksonEncoder())
+                .errorDecoder(new FleetErrorDecoder())
                 .requestInterceptors(getRequestInterceptors())
                 .target(FleetApi.class, url);
         //@formatter:on

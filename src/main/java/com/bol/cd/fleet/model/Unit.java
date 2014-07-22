@@ -10,9 +10,6 @@ public class Unit {
     private String targetMachineID;
     private SystemdState systemd;
 
-    public Unit() {
-    }
-
     public String getName() {
         return name;
     }

@@ -6,15 +6,6 @@ public class DesiredUnitState {
     private State desiredState;
     private byte[] fileContents;
 
-    public DesiredUnitState() {
-    }
-
-    public DesiredUnitState(String name, State desiredState, byte[] fileContents) {
-        this.name = name;
-        this.desiredState = desiredState;
-        this.fileContents = fileContents;
-    }
-
     public String getName() {
         return name;
     }

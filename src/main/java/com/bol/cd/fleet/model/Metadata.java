@@ -5,14 +5,6 @@ import java.util.Map;
 
 public class Metadata {
 
-    public Metadata() {
-    }
-
-    public Metadata(Map<String, Object> properties, Map<String, Object> additionalProperties) {
-        this.properties = properties;
-        this.additionalProperties = additionalProperties;
-    }
-
     private Map<String, Object> properties = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
 

@@ -6,12 +6,6 @@ public class Machine {
     private String primaryIP;
     private Metadata metadata;
 
-    public Machine(String id, String primaryIP, Metadata metadata) {
-        this.id = id;
-        this.primaryIP = primaryIP;
-        this.metadata = metadata;
-    }
-
     public String getId() {
         return id;
     }

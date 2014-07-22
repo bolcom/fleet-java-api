@@ -7,16 +7,6 @@ public class SystemdState {
     private String subState;
     private String machineID;
 
-    public SystemdState() {
-    }
-
-    public SystemdState(String loadState, String activeState, String subState, String machineID) {
-        this.loadState = loadState;
-        this.activeState = activeState;
-        this.subState = subState;
-        this.machineID = machineID;
-    }
-
     public String getLoadState() {
         return loadState;
     }

@@ -7,13 +7,6 @@ public class MachinePage {
 
     private List<Machine> machines = new ArrayList<>();
 
-    public MachinePage() {
-    }
-
-    public MachinePage(List<Machine> machines) {
-        this.machines = machines;
-    }
-
     public List<Machine> getMachines() {
         return machines;
     }

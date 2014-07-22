@@ -5,14 +5,6 @@ public class DeletableUnit {
     private String name;
     private byte[] fileContents;
 
-    public DeletableUnit() {
-    }
-
-    public DeletableUnit(String name, byte[] fileContents) {
-        this.name = name;
-        this.fileContents = fileContents;
-    }
-
     public String getName() {
         return name;
     }

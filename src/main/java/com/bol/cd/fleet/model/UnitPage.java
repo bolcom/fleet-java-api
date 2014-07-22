@@ -7,10 +7,6 @@ public class UnitPage {
 
     private List<Unit> units = new ArrayList<>();
 
-    public UnitPage(List<Unit> units) {
-        this.units = units;
-    }
-
     public List<Unit> getUnits() {
         return units;
     }
